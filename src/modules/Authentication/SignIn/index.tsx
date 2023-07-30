@@ -9,12 +9,20 @@ import {
 } from "@mui/material";
 import { SignInContainer } from "./styles";
 import {Link} from "react-router-dom";
+import { useDispatch,useSelector } from "react-redux";
+import { State } from "../../../Redux/rootReducer";
 
 const SignIn = () => {
   const [emailValue, setEmailValue] = useState<string>();
 
   const [passwordValue, setPasswordValue] = useState<string>();
 
+  const dispatch=useDispatch();
+
+  const isUserLogged=useSelector((state:State)=>state.user.isUserLogged);
+
+  console.log("userLogged",isUserLogged);
+  
   const handleChangePasswordValue = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {

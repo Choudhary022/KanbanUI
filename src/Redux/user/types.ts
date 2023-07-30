@@ -1,4 +1,0 @@
-export const  USER_ACTION_TYPES ={
-
-    IS_USER_LOGGED:"IS_USER_LOGGED"
-}
