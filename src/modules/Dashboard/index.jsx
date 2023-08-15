@@ -1,7 +1,6 @@
 
 import {Box,Card,CardHeader,CardContent} from "@mui/material";
-import Navbar from "../../MainLayout/NavBar";
-import DashBoardContent from "./DashboardContent";
+import DashBoardContent from "./DashboardContent/index";
 
 
 const Dashboard = () => {

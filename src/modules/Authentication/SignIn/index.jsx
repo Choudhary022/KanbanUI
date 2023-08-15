@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   Box,
   TextField,
@@ -7,29 +8,32 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+
 import { SignInContainer } from "./styles";
-import {Link} from "react-router-dom";
-import { useDispatch,useSelector } from "react-redux";
-import { State } from "../../../Redux/rootReducer";
+
+import { Link } from "react-router-dom";
+// import { useDispatch, useSelector } from "react-redux";
+// import { State } from "../../../Redux/rootReducer";
+// import { logIn } from "../../../Redux/user/ActionCreator/actions";
+// import { UserCredential } from "../../../Redux/user/ActionCreator/types";
 
 const SignIn = () => {
-  const [emailValue, setEmailValue] = useState<string>();
 
-  const [passwordValue, setPasswordValue] = useState<string>();
+  const [emailValue, setEmailValue] = useState();
 
-  const dispatch=useDispatch();
+  const [passwordValue, setPasswordValue] = useState();
 
-  const isUserLogged=useSelector((state:State)=>state.user.isUserLogged);
+  // const dispatch = useDispatch();
 
-  console.log("userLogged",isUserLogged);
-  
+  // const { isUserLogged } = useSelector((state: State) => state.user);
+
   const handleChangePasswordValue = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event
   ) => {
     setPasswordValue(event.target.value);
   };
 
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = (event) => {
     const email = event.target.value;
     const trimmedEmail = email.trim();
     if (trimmedEmail.length == 0) {
@@ -40,7 +44,15 @@ const SignIn = () => {
     console.log("email", trimmedEmail);
   };
 
-  const handleSubmitUser = () => {};
+  const handleSubmitUser = () => {
+    // if (emailValue && passwordValue) {
+    //   let user: UserCredential = {
+    //     email: emailValue,
+    //     password: passwordValue,
+    //   };
+    //   // dispatch(logIn(user));
+    // }
+  };
 
   return (
     <>
@@ -71,7 +83,9 @@ const SignIn = () => {
             <Button>Cancel</Button>
           </Link>
 
-          <Button onClick={handleSubmitUser}>Log in</Button>
+          <Link to="/home">
+            <Button onClick={handleSubmitUser}>Log in</Button>
+          </Link>
         </Stack>
       </SignInContainer>
     </>
